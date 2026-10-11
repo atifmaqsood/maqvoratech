@@ -40,7 +40,7 @@ export function MobileMenu() {
         side="top"
         showCloseButton={false}
         data-lenis-prevent
-        className="h-dvh gap-0 border-0 bg-background/95 p-0 backdrop-blur-2xl"
+        className="gap-0 border-0 bg-background/95 p-0 backdrop-blur-2xl data-[side=top]:h-dvh"
       >
         <div
           aria-hidden

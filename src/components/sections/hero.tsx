@@ -91,7 +91,12 @@ export function Hero() {
         >
           {hero.trust.map((t, i) => (
             <li key={t} className="flex items-center gap-6">
-              {i > 0 && <span aria-hidden className="size-1 rounded-full bg-foreground/25" />}
+              {i > 0 && (
+                <span
+                  aria-hidden
+                  className="hidden size-1 rounded-full bg-foreground/25 sm:block"
+                />
+              )}
               {t}
             </li>
           ))}

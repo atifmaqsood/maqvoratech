@@ -16,7 +16,7 @@ export function FeaturedWork() {
   if (featuredProjects.length === 0) return null;
 
   return (
-    <section aria-labelledby="work-title" className="container-x py-24 md:py-32">
+    <section aria-labelledby="work-title" className="container-x overflow-x-clip py-24 md:py-32">
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
         <SectionHeading
           id="work-title"
