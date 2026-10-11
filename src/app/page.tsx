@@ -2,8 +2,9 @@ import { Logo } from "@/components/brand/logo";
 
 export default function Home() {
   return (
-    <main id="main" className="container-x grid min-h-dvh place-items-center">
+    <section className="container-x grid min-h-[80dvh] place-items-center">
+      <h1 className="sr-only">Maqvoratech</h1>
       <Logo markClassName="size-12" />
-    </main>
+    </section>
   );
 }

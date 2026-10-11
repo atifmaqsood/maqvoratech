@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 
-import { ThemeProvider } from "@/components/layout/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
+import { Providers } from "@/components/layout/providers";
 import { site } from "@/data/site";
 import { SITE_URL } from "@/lib/constants";
 
@@ -46,10 +47,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
-      <body className="min-h-dvh">
-        <ThemeProvider>
-          <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
-        </ThemeProvider>
+      <body className="flex min-h-dvh flex-col">
+        <a
+          href="#main"
+          className="fixed top-3 left-3 z-[100] -translate-y-24 rounded-full bg-gradient-brand px-4 py-2 text-sm font-medium text-accent-foreground transition-transform focus-visible:translate-y-0"
+        >
+          Skip to content
+        </a>
+        <Providers>
+          <Navbar />
+          <main id="main" tabIndex={-1} className="flex-1 outline-none">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
         <div className="grain" aria-hidden />
       </body>
     </html>
