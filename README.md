@@ -48,9 +48,10 @@ All copy lives in `src/data/` — you never need to touch JSX to change text, li
 | ------------------------- | --------------------------------------------------------------- |
 | `site.ts`                 | Name, tagline, email, WhatsApp, location, socials, nav, footer  |
 | `home.ts`                 | Home page section copy                                          |
-| `pages.ts`                | Work / Services / About / Contact copy, founder                 |
+| `pages.ts`                | Work / Services / Team / About / Contact copy, founder          |
 | `services.ts`             | Services (+ bento layout) and engagement models                 |
 | `projects.ts`             | Portfolio projects                                              |
+| `team.ts`                 | Team page — teams and members (add names/photos in `public/team/`) |
 | `stats.ts`                | Animated counters and differentiators                          |
 | `process.ts`              | The 5-step process                                              |
 | `faqs.ts`                 | FAQ                                                             |

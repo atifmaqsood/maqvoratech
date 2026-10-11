@@ -11,14 +11,14 @@ export function Founder() {
   return (
     <section aria-labelledby="founder-title" className="container-x py-16 md:py-24">
       <Reveal className="grid items-center gap-10 overflow-hidden rounded-[2rem] border border-border bg-surface p-6 shadow-card md:grid-cols-12 md:p-10">
-        <div className="relative aspect-square overflow-hidden rounded-3xl md:col-span-5">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl md:col-span-5">
           {f.photo ? (
             <Image
               src={f.photo}
               alt={`Portrait of ${f.name}`}
               fill
               sizes="(min-width: 768px) 40vw, 100vw"
-              className="object-cover"
+              className="object-cover object-[50%_12%]"
             />
           ) : (
             <div

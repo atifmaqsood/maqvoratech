@@ -22,8 +22,6 @@ import { site } from "@/data/site";
 import { EASE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const links = [{ label: "Home", href: "/" }, ...site.nav];
-
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -32,7 +30,7 @@ export function MobileMenu() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         aria-label="Open menu"
-        className="inline-flex size-9 items-center justify-center rounded-full text-foreground hover:bg-foreground/[0.06] md:hidden"
+        className="inline-flex size-9 items-center justify-center rounded-full text-foreground hover:bg-foreground/[0.06] lg:hidden"
       >
         <Menu className="size-5" />
       </SheetTrigger>
@@ -68,7 +66,7 @@ export function MobileMenu() {
 
         <nav aria-label="Mobile" className="container-x mt-8 flex-1">
           <ul className="flex flex-col">
-            {links.map((link, i) => {
+            {site.nav.map((link, i) => {
               const active = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               return (
                 <motion.li
@@ -82,7 +80,7 @@ export function MobileMenu() {
                     <Link
                       href={link.href}
                       aria-current={active ? "page" : undefined}
-                      className="group flex items-center justify-between py-5 text-4xl font-semibold tracking-[-0.04em]"
+                      className="group flex items-center justify-between py-4 text-4xl font-semibold tracking-[-0.04em]"
                     >
                       <span className={cn(active && "text-gradient")}>{link.label}</span>
                       <ArrowUpRight className="size-6 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

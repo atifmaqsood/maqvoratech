@@ -19,8 +19,10 @@ export const site = {
   foundedYear: 2021,
 
   nav: [
+    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
+    { label: "Team", href: "/team" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ] satisfies NavItem[],
@@ -43,6 +45,7 @@ export const site = {
         title: "Studio",
         links: [
           { label: "About", href: "/about" },
+          { label: "Team", href: "/team" },
           { label: "Work", href: "/work" },
           { label: "Process", href: "/about#process" },
           { label: "Contact", href: "/contact" },
@@ -54,6 +57,8 @@ export const site = {
           { label: "Web apps", href: "/services/web-apps" },
           { label: "SaaS products", href: "/services/saas" },
           { label: "Mobile apps", href: "/services/mobile-apps" },
+          { label: ".NET development", href: "/services/dotnet" },
+          { label: "Python development", href: "/services/python" },
           { label: "AI integrations", href: "/services/ai-integrations" },
         ],
       },

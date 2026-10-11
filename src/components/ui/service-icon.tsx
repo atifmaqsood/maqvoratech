@@ -1,6 +1,7 @@
 import {
   AppWindow,
   Blocks,
+  Braces,
   Cpu,
   LifeBuoy,
   Palette,
@@ -8,6 +9,7 @@ import {
   ServerCog,
   ShoppingBag,
   Smartphone,
+  SquareTerminal,
   type LucideIcon,
 } from "lucide-react";
 
@@ -21,6 +23,8 @@ const icons: Record<ServiceIconKey, LucideIcon> = {
   cart: ShoppingBag,
   pos: Receipt,
   api: ServerCog,
+  dotnet: Braces,
+  python: SquareTerminal,
   design: Palette,
   ai: Cpu,
   support: LifeBuoy,

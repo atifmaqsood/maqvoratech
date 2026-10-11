@@ -71,12 +71,19 @@ export const about = {
     role: "Founder & Lead Engineer",
     bio: "Atif is a full-stack engineer who has spent years building web apps, SaaS platforms and business systems for startups and growing companies. Maqvoratech was founded to bring senior-level craft and honest communication to every project — and Atif still writes code every day.",
     /** Put a square photo in /public (e.g. /team/atif.webp). Leave empty for the monogram placeholder. */
-    photo: "",
+    photo: "/team/atif.jpeg",
     links: [
       { label: "LinkedIn", href: "https://www.linkedin.com/" },
       { label: "GitHub", href: "https://github.com/" },
     ],
   },
+};
+
+export const teamPage = {
+  eyebrow: "Our team",
+  title: "The people behind the *pixels*",
+  description:
+    "Specialist teams for .NET, Python and modern web — led by senior engineers who stay hands-on from kickoff to launch.",
 };
 
 export const contactPage = {

@@ -1,5 +1,15 @@
 export type ServiceIconKey =
-  "web" | "saas" | "mobile" | "cart" | "pos" | "api" | "design" | "ai" | "support";
+  | "web"
+  | "saas"
+  | "mobile"
+  | "cart"
+  | "pos"
+  | "api"
+  | "dotnet"
+  | "python"
+  | "design"
+  | "ai"
+  | "support";
 
 export type BentoVisual = "code" | "chart" | "phone" | "cart" | "ai" | "design";
 
@@ -131,6 +141,42 @@ export const services: Service[] = [
     deliverables: ["Documented API", "Cloud infrastructure", "Runbooks"],
     stack: ["Node.js", "Laravel", "PostgreSQL", "Redis", "Docker", "AWS"],
     timeline: "4–10 weeks",
+  },
+  {
+    slug: "dotnet",
+    title: ".NET development",
+    summary: "Enterprise-grade apps and APIs on ASP.NET Core, C# and Azure.",
+    description:
+      "From greenfield ASP.NET Core platforms to modernising legacy .NET Framework systems, our .NET team builds secure, high-performance software that fits right into Microsoft-centric organisations.",
+    icon: "dotnet",
+    included: [
+      "ASP.NET Core web apps & REST APIs",
+      "Blazor and MVC front-ends",
+      "Entity Framework Core & SQL Server",
+      "Azure hosting, DevOps & CI/CD",
+      "Legacy .NET Framework → .NET 8+ migration",
+    ],
+    deliverables: ["Production .NET application", "API documentation", "Azure infrastructure"],
+    stack: ["C#", "ASP.NET Core", "Entity Framework", "SQL Server", "Azure", "Blazor"],
+    timeline: "6–14 weeks",
+  },
+  {
+    slug: "python",
+    title: "Python development",
+    summary: "Django and FastAPI backends, automation and data pipelines.",
+    description:
+      "Our Python team builds fast, well-tested backends, internal tools, automations and data pipelines — and connects them to the AI and analytics capabilities Python does best.",
+    icon: "python",
+    included: [
+      "Django & FastAPI backends and APIs",
+      "Admin panels and internal tools",
+      "Automation, scraping & scheduled jobs",
+      "Data pipelines and reporting",
+      "ML / AI model integration",
+    ],
+    deliverables: ["Python backend or service", "Test suite & docs", "Deployment pipeline"],
+    stack: ["Python", "Django", "FastAPI", "Celery", "PostgreSQL", "Pandas"],
+    timeline: "4–12 weeks",
   },
   {
     slug: "ui-ux",
