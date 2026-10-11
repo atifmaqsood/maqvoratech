@@ -2,6 +2,7 @@
 export const marqueeTech = [
   "Next.js",
   "React",
+  "Angular",
   "TypeScript",
   "Node.js",
   "Laravel",
@@ -20,7 +21,10 @@ export const marqueeTech = [
 
 /** Grouped stack shown on the About page. */
 export const techStack: { group: string; items: string[] }[] = [
-  { group: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Motion", "Vue"] },
+  {
+    group: "Frontend",
+    items: ["Next.js", "React", "Angular", "TypeScript", "Tailwind CSS", "Vue"],
+  },
   {
     group: "Backend",
     items: [

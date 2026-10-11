@@ -4,6 +4,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { PageHeader } from "@/components/sections/page-header";
 import { JsonLd } from "@/components/seo/json-ld";
 import { MemberCard } from "@/components/team/member-card";
+import { TeamIcon } from "@/components/team/team-icon";
 import { Stagger, StaggerItem } from "@/components/ui/reveal";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { TechTags } from "@/components/work/tech-tags";
@@ -51,7 +52,13 @@ export default function TeamPage() {
           >
             <div className="flex flex-col justify-between gap-6 border-t border-border pt-10 md:flex-row md:items-end">
               <div className="flex max-w-2xl flex-col gap-4">
-                <Eyebrow>{String(ti + 1).padStart(2, "0")}</Eyebrow>
+                <div className="flex items-center gap-4">
+                  <TeamIcon name={team.icon} />
+                  <Eyebrow>
+                    {String(ti + 1).padStart(2, "0")} · {team.members.length}{" "}
+                    {team.members.length === 1 ? "member" : "roles"}
+                  </Eyebrow>
+                </div>
                 <h2 id={`${team.slug}-title`} className="display-md">
                   {team.name}
                 </h2>
@@ -68,9 +75,9 @@ export default function TeamPage() {
                 featured ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3",
               )}
             >
-              {team.members.map((m) => (
+              {team.members.map((m, i) => (
                 <StaggerItem key={m.name ?? m.role} className="flex">
-                  <MemberCard member={m} featured={featured} />
+                  <MemberCard member={m} team={team} index={i} featured={featured} />
                 </StaggerItem>
               ))}
             </Stagger>

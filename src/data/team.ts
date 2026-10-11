@@ -11,9 +11,12 @@ export type TeamMember = {
   links?: { label: string; href: string }[];
 };
 
+export type TeamIcon = "leadership" | "javascript" | "dotnet" | "python";
+
 export type Team = {
   slug: string;
   name: string;
+  icon: TeamIcon;
   description: string;
   stack: string[];
   members: TeamMember[];
@@ -22,13 +25,14 @@ export type Team = {
 const founder = about.founder;
 
 /**
- * ⚠️ Only the founder is a real profile. The .NET and Python team entries are
+ * ⚠️ Only the founder is a real profile. The MERN/MEAN, .NET and Python entries are
  * role placeholders — add each person's `name`, `photo` and `bio` when ready.
  */
 export const teams: Team[] = [
   {
     slug: "leadership",
     name: "Leadership",
+    icon: "leadership",
     description: "Sets the technical direction, owns client relationships and still ships code.",
     stack: ["Architecture", "Full-stack", "Delivery"],
     members: [
@@ -43,26 +47,77 @@ export const teams: Team[] = [
     ],
   },
   {
+    slug: "mern-mean",
+    name: "MERN & MEAN team",
+    icon: "javascript",
+    description:
+      "Full-stack JavaScript and TypeScript — React or Angular on the front, Node.js and MongoDB behind it.",
+    stack: ["MongoDB", "Express", "React", "Angular", "Node.js", "TypeScript"],
+    members: [
+      {
+        role: "Senior MERN Engineer",
+        bio: "Architects React and Node.js products end to end, from data model to deployment.",
+        skills: ["React", "Node.js", "MongoDB"],
+      },
+      {
+        role: "MEAN Stack Developer",
+        bio: "Builds Angular front-ends backed by Express APIs and MongoDB.",
+        skills: ["Angular", "Express", "RxJS"],
+      },
+      {
+        role: "Full-stack JavaScript Developer",
+        bio: "Ships features across Next.js, NestJS and TypeScript codebases.",
+        skills: ["Next.js", "NestJS", "TypeScript"],
+      },
+    ],
+  },
+  {
     slug: "dotnet",
     name: ".NET team",
+    icon: "dotnet",
     description:
       "Enterprise applications, APIs and Azure infrastructure built on the modern Microsoft stack.",
     stack: ["C#", "ASP.NET Core", "Entity Framework", "SQL Server", "Azure", "Blazor"],
     members: [
-      { role: "Senior .NET Engineer", skills: ["C#", "ASP.NET Core", "Azure"] },
-      { role: ".NET Backend Developer", skills: ["Web APIs", "EF Core", "SQL Server"] },
-      { role: "Full-stack .NET Developer", skills: ["Blazor", "MVC", "TypeScript"] },
+      {
+        role: "Senior .NET Engineer",
+        bio: "Designs ASP.NET Core platforms and the Azure infrastructure they run on.",
+        skills: ["C#", "ASP.NET Core", "Azure"],
+      },
+      {
+        role: ".NET Backend Developer",
+        bio: "Builds secure Web APIs and data layers with EF Core and SQL Server.",
+        skills: ["Web APIs", "EF Core", "SQL Server"],
+      },
+      {
+        role: "Full-stack .NET Developer",
+        bio: "Delivers Blazor and MVC interfaces on top of robust .NET services.",
+        skills: ["Blazor", "MVC", "TypeScript"],
+      },
     ],
   },
   {
     slug: "python",
     name: "Python team",
+    icon: "python",
     description: "Django and FastAPI backends, automation, data pipelines and AI integrations.",
     stack: ["Python", "Django", "FastAPI", "Celery", "PostgreSQL", "Pandas"],
     members: [
-      { role: "Senior Python Engineer", skills: ["Django", "FastAPI", "PostgreSQL"] },
-      { role: "Python Backend Developer", skills: ["REST APIs", "Celery", "Redis"] },
-      { role: "Data & AI Engineer", skills: ["Pandas", "LLM APIs", "Automation"] },
+      {
+        role: "Senior Python Engineer",
+        bio: "Leads Django and FastAPI backends built for scale and easy maintenance.",
+        skills: ["Django", "FastAPI", "PostgreSQL"],
+      },
+      {
+        role: "Python Backend Developer",
+        bio: "Builds REST APIs, background workers and third-party integrations.",
+        skills: ["REST APIs", "Celery", "Redis"],
+      },
+      {
+        role: "Data & AI Engineer",
+        bio: "Turns data into pipelines, reports and practical AI features.",
+        skills: ["Pandas", "LLM APIs", "Automation"],
+      },
     ],
   },
 ];

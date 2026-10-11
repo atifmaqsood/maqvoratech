@@ -83,7 +83,7 @@ export const teamPage = {
   eyebrow: "Our team",
   title: "The people behind the *pixels*",
   description:
-    "Specialist teams for .NET, Python and modern web — led by senior engineers who stay hands-on from kickoff to launch.",
+    "Specialist MERN & MEAN, .NET and Python teams — led by senior engineers who stay hands-on from kickoff to launch.",
 };
 
 export const contactPage = {
