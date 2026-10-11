@@ -7,17 +7,20 @@ import { Values } from "@/components/about/values";
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHeader } from "@/components/sections/page-header";
 import { Process } from "@/components/sections/process";
+import { JsonLd } from "@/components/seo/json-ld";
 import { about } from "@/data/pages";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description: about.description,
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "About", path: "/about" }])} />
       <PageHeader eyebrow={about.eyebrow} title={about.title} description={about.description} />
       <Story />
       <Values />

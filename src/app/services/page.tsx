@@ -2,21 +2,24 @@ import type { Metadata } from "next";
 
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHeader } from "@/components/sections/page-header";
+import { JsonLd } from "@/components/seo/json-ld";
 import { EngagementModels } from "@/components/services/engagement-models";
 import { ServiceRow } from "@/components/services/service-row";
 import { Reveal } from "@/components/ui/reveal";
 import { servicesPage } from "@/data/pages";
 import { services } from "@/data/services";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Services",
   description: servicesPage.description,
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Services", path: "/services" }])} />
       <PageHeader
         eyebrow={servicesPage.eyebrow}
         title={servicesPage.title}

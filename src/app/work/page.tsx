@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHeader } from "@/components/sections/page-header";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ProjectCard } from "@/components/work/project-card";
 import { ProjectGrid } from "@/components/work/project-grid";
 import { work } from "@/data/pages";
 import { projects } from "@/data/projects";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Work",
   description: work.description,
-  alternates: { canonical: "/work" },
-};
+  path: "/work",
+});
 
 export default function WorkPage() {
   const sorted = [...projects].sort(
@@ -21,6 +23,7 @@ export default function WorkPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Work", path: "/work" }])} />
       <PageHeader eyebrow={work.eyebrow} title={work.title} description={work.description} />
       <section aria-label="Projects" className="container-x pb-12">
         <ProjectGrid

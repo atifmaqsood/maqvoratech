@@ -5,11 +5,13 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 
 import { CtaBand } from "@/components/sections/cta-band";
 import { Process } from "@/components/sections/process";
+import { JsonLd } from "@/components/seo/json-ld";
 import { CtaLink } from "@/components/ui/cta";
 import { Reveal } from "@/components/ui/reveal";
 import { ServiceIcon } from "@/components/ui/service-icon";
 import { TechTags } from "@/components/work/tech-tags";
 import { getService, services } from "@/data/services";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -19,11 +21,11 @@ export async function generateMetadata(props: PageProps<"/services/[slug]">): Pr
   const { slug } = await props.params;
   const service = getService(slug);
   if (!service) return {};
-  return {
+  return pageMetadata({
     title: service.title,
     description: service.summary,
-    alternates: { canonical: `/services/${slug}` },
-  };
+    path: `/services/${slug}`,
+  });
 }
 
 export default async function ServicePage(props: PageProps<"/services/[slug]">) {
@@ -35,6 +37,12 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${slug}` },
+        ])}
+      />
       <section className="relative isolate overflow-hidden pt-36 pb-16 md:pt-44">
         <div
           aria-hidden

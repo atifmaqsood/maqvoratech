@@ -15,7 +15,7 @@ export function TechMarquee() {
         {marqueeTech.map((t) => (
           <span
             key={t}
-            className="mx-7 flex items-center gap-7 text-xl font-medium tracking-[-0.03em] whitespace-nowrap text-foreground/45 transition-colors hover:text-foreground md:mx-9 md:text-2xl"
+            className="mx-7 flex items-center gap-7 text-xl font-medium tracking-[-0.03em] whitespace-nowrap text-foreground/60 transition-colors hover:text-foreground md:mx-9 md:text-2xl"
           >
             {t}
             <span aria-hidden className="size-1.5 rotate-45 bg-foreground/20" />
