@@ -15,7 +15,7 @@ async function CurrentYear() {
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden border-t border-border">
+    <footer className="relative mt-16 overflow-hidden border-t border-border">
       <div className="container-x grid gap-14 py-16 md:grid-cols-12 md:py-20">
         <div className="flex flex-col gap-6 md:col-span-5">
           <Link href="/" aria-label={`${site.name} home`} className="w-fit">
