@@ -1,3 +1,4 @@
+import { useId } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
@@ -22,75 +23,58 @@ function Skills({ skills }: { skills?: string[] }) {
   );
 }
 
-/** Hairline that lights up along the top edge on hover. */
-function TopGlow() {
+/** On-brand avatar illustration shown until a real portrait is added. */
+function AvatarIllustration({ team }: { team: Team }) {
+  const fillId = `avatar-${useId()}`;
   return (
-    <span
-      aria-hidden
-      className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-500 group-hover/spot:opacity-100"
-    />
+    <div aria-hidden className="absolute inset-0 bg-surface-2">
+      <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,var(--glow),transparent_70%)]" />
+      <div className="absolute inset-0 dot-grid opacity-50" />
+      <svg
+        viewBox="0 0 200 250"
+        preserveAspectRatio="xMidYMax meet"
+        className="absolute inset-x-0 bottom-0 h-[82%] w-full text-foreground transition-transform duration-[1200ms] ease-out-expo group-hover/spot:scale-[1.03]"
+      >
+        <defs>
+          <linearGradient id={fillId} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="currentColor" stopOpacity="0.22" />
+            <stop offset="1" stopColor="currentColor" stopOpacity="0.05" />
+          </linearGradient>
+        </defs>
+        <circle cx="100" cy="92" r="40" fill={`url(#${fillId})`} />
+        <path d="M22 250c0-62 35-102 78-102s78 40 78 102z" fill={`url(#${fillId})`} />
+      </svg>
+      <TeamIcon name={team.icon} className="absolute top-5 left-5 size-10" />
+    </div>
   );
 }
 
 type CardProps = { member: TeamMember; team: Team; index: number; featured?: boolean };
 
-/** Card for a role that doesn't have a named profile yet. */
-function RoleCard({ member: m, team, index }: CardProps) {
-  return (
-    <SpotlightCard
-      className="h-full w-full"
-      innerClassName="relative flex h-full flex-col p-6 md:p-7"
-    >
-      <TopGlow />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute top-4 right-6 font-mono text-6xl font-semibold tracking-[-0.06em] text-foreground/[0.05] transition-colors duration-500 group-hover/spot:text-accent/15"
-      >
-        {String(index + 1).padStart(2, "0")}
-      </span>
+/** Team member card with a portrait (real photo or avatar illustration). */
+export function MemberCard({ member: m, team, featured }: CardProps) {
+  const title = m.name ?? m.role;
 
-      <TeamIcon
-        name={team.icon}
-        className="transition-transform duration-500 ease-out-expo group-hover/spot:-translate-y-0.5"
-      />
-      <h3 className="mt-6 text-xl font-semibold tracking-[-0.03em]">{m.role}</h3>
-      {m.bio && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>}
-      <div className="mt-5">
-        <Skills skills={m.skills} />
-      </div>
-
-      <div className="mt-auto pt-7">
-        <div className="flex items-center justify-between gap-3 border-t border-border pt-5 font-mono text-[0.68rem] tracking-[0.12em] uppercase">
-          <span className="flex items-center gap-2 text-muted-foreground">
-            <span aria-hidden className="size-1.5 rounded-full bg-cool" />
-            {team.name}
-          </span>
-          <span className="text-muted-foreground/80">Profile soon</span>
-        </div>
-      </div>
-    </SpotlightCard>
-  );
-}
-
-/** Card for a named person with a portrait. `featured` lays it out side-by-side. */
-function PortraitCard({ member: m, featured }: CardProps) {
-  const name = m.name ?? m.role;
   return (
     <SpotlightCard
       className="h-full w-full"
       innerClassName={cn("relative flex h-full flex-col", featured && "md:grid md:grid-cols-12")}
     >
-      <TopGlow />
+      <span
+        aria-hidden
+        className="absolute inset-x-8 top-0 z-10 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-500 group-hover/spot:opacity-100"
+      />
+
       <div
         className={cn(
           "relative aspect-[4/5] overflow-hidden",
           featured && "md:col-span-5 md:aspect-auto md:min-h-[30rem]",
         )}
       >
-        {m.photo && (
+        {m.photo ? (
           <Image
             src={m.photo}
-            alt={`Portrait of ${name}`}
+            alt={`Portrait of ${title}`}
             fill
             sizes={
               featured
@@ -99,33 +83,36 @@ function PortraitCard({ member: m, featured }: CardProps) {
             }
             className="object-cover object-[50%_12%] transition-transform duration-[1200ms] ease-out-expo group-hover/spot:scale-[1.03]"
           />
+        ) : (
+          <AvatarIllustration team={team} />
         )}
         <div
           aria-hidden
           className={cn(
             "absolute inset-0 bg-gradient-to-t from-surface via-surface/10 to-transparent",
-            featured &&
-              "md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-surface/40",
+            featured && "md:bg-none",
           )}
         />
       </div>
 
       <div
         className={cn(
-          "relative flex flex-1 flex-col gap-5 p-6 md:p-7",
-          !featured && "-mt-20",
-          featured && "md:col-span-7 md:justify-center md:p-12",
+          "relative flex flex-1 flex-col gap-4 p-6 md:p-7",
+          !featured && "-mt-16",
+          featured && "md:col-span-7 md:justify-center md:gap-5 md:p-12",
         )}
       >
         <div>
-          <p className="font-mono text-xs tracking-[0.12em] text-accent-text uppercase">{m.role}</p>
+          <p className="font-mono text-[0.7rem] tracking-[0.12em] text-accent-text uppercase">
+            {m.name ? m.role : team.name}
+          </p>
           <h3
             className={cn(
               "mt-2 font-semibold tracking-[-0.04em]",
               featured ? "text-4xl md:text-5xl" : "text-2xl",
             )}
           >
-            {name}
+            {title}
           </h3>
         </div>
         {m.bio && (
@@ -150,7 +137,7 @@ function PortraitCard({ member: m, featured }: CardProps) {
                   className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border px-4 text-sm font-medium transition-colors hover:border-border-strong hover:text-accent-text"
                 >
                   {l.label} <ArrowUpRight className="size-3.5" aria-hidden />
-                  <span className="sr-only"> profile of {name} (opens in a new tab)</span>
+                  <span className="sr-only"> profile of {title} (opens in a new tab)</span>
                 </a>
               </li>
             ))}
@@ -159,8 +146,4 @@ function PortraitCard({ member: m, featured }: CardProps) {
       </div>
     </SpotlightCard>
   );
-}
-
-export function MemberCard(props: CardProps) {
-  return props.member.photo ? <PortraitCard {...props} /> : <RoleCard {...props} />;
 }
