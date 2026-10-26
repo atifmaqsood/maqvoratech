@@ -25,8 +25,8 @@ export type Team = {
 const founder = about.founder;
 
 /**
- * ⚠️ Only the founder is a real profile. The MERN/MEAN, .NET and Python entries are
- * role placeholders — add each person's `name`, `photo` and `bio` when ready.
+ * Entries with a `name` are real profiles. Entries with only a `role` are open
+ * placeholders — add each person's `name`, `photo` and `bio` when ready.
  */
 export const teams: Team[] = [
   {
@@ -55,9 +55,11 @@ export const teams: Team[] = [
     stack: ["MongoDB", "Express", "React", "Angular", "Node.js", "TypeScript"],
     members: [
       {
-        role: "Senior MERN Engineer",
-        bio: "Architects React and Node.js products end to end, from data model to deployment.",
-        skills: ["React", "Node.js", "MongoDB"],
+        name: "Mutahir Waheed",
+        role: "Senior MERN & MEAN Stack Developer",
+        bio: "Builds full-stack products with React, Angular, Node.js and MongoDB — from data model to deployment.",
+        photo: "/team/mutahir.jpeg",
+        skills: ["React", "Angular", "Node.js", "Express", "MongoDB"],
       },
       {
         role: "MEAN Stack Developer",
@@ -80,9 +82,11 @@ export const teams: Team[] = [
     stack: ["C#", "ASP.NET Core", "Entity Framework", "SQL Server", "Azure", "Blazor"],
     members: [
       {
-        role: "Senior .NET Engineer",
-        bio: "Designs ASP.NET Core platforms and the Azure infrastructure they run on.",
-        skills: ["C#", "ASP.NET Core", "Azure"],
+        name: "Sufiyan Shakeel",
+        role: "Senior .NET Developer",
+        bio: "Designs ASP.NET Core platforms, APIs and the Azure infrastructure they run on.",
+        photo: "/team/sufiyan.jpeg",
+        skills: ["C#", "ASP.NET Core", "EF Core", "SQL Server", "Azure"],
       },
       {
         role: ".NET Backend Developer",
