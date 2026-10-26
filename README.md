@@ -37,7 +37,7 @@ npm run dev                  # http://localhost:3000
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `RESEND_API_KEY`       | Prod     | Resend API key. If empty, submissions are logged to the console in dev.     |
 | `CONTACT_TO_EMAIL`     | Prod     | Inbox that receives contact form submissions.                               |
-| `CONTACT_FROM_EMAIL`   | Prod     | Verified Resend sender, e.g. `Maqvoratech <hello@maqvoratech.com>`.         |
+| `CONTACT_FROM_EMAIL`   | Prod     | Verified Resend sender, e.g. `Maqvoratech <info@maqvoratech.com>`.         |
 | `NEXT_PUBLIC_SITE_URL` | Yes      | Public URL without trailing slash — used for canonical URLs, sitemap, OG.  |
 
 ## Editing content

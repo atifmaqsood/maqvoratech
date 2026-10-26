@@ -8,7 +8,7 @@ export const site = {
   tagline: "Engineering-first, design-obsessed.",
   description:
     "Maqvoratech is a senior full-stack studio building production-grade web apps, SaaS products, mobile apps and business systems for startups, SMBs and international clients.",
-  email: "hello@maqvoratech.com",
+  email: "info@maqvoratech.com",
   /** Digits only, international format — used to build the wa.me link. */
   whatsapp: "923000000000",
   whatsappDisplay: "+92 300 000 0000",
@@ -34,7 +34,7 @@ export const site = {
     { key: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/maqvoratech" },
     { key: "upwork", label: "Upwork", href: "https://www.upwork.com/" },
     { key: "x", label: "X (Twitter)", href: "https://x.com/maqvoratech" },
-    { key: "email", label: "Email", href: "mailto:hello@maqvoratech.com" },
+    { key: "email", label: "Email", href: "mailto:info@maqvoratech.com" },
   ] satisfies SocialLink[],
 
   footer: {
