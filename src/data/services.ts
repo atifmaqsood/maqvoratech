@@ -8,6 +8,9 @@ export type ServiceIconKey =
   | "dotnet"
   | "python"
   | "design"
+  | "graphic"
+  | "wordpress"
+  | "content"
   | "ai"
   | "support";
 
@@ -107,6 +110,24 @@ export const services: Service[] = [
     bento: { size: "sm", visual: "cart" },
   },
   {
+    slug: "wordpress",
+    title: "WordPress development",
+    summary: "Fast, secure WordPress sites your team can update without a developer.",
+    description:
+      "Custom WordPress themes, WooCommerce stores and Gutenberg blocks — built for speed, security and an editing experience your marketing team will actually enjoy.",
+    icon: "wordpress",
+    included: [
+      "Custom themes & Gutenberg blocks",
+      "WooCommerce stores & payments",
+      "Plugin setup and custom plugins",
+      "Speed, SEO & security hardening",
+      "Migrations, backups & hosting setup",
+    ],
+    deliverables: ["Live WordPress site", "Editor training", "Admin & backup setup"],
+    stack: ["WordPress", "PHP", "WooCommerce", "ACF", "Elementor", "MySQL"],
+    timeline: "2–6 weeks",
+  },
+  {
     slug: "pos-systems",
     title: "POS & business systems",
     summary: "Point-of-sale, inventory and ERP-style tools tailored to how you work.",
@@ -196,6 +217,42 @@ export const services: Service[] = [
     stack: ["Figma", "Framer", "Storybook"],
     timeline: "2–6 weeks",
     bento: { size: "md", visual: "design" },
+  },
+  {
+    slug: "graphic-design",
+    title: "Graphic design",
+    summary: "Logos, brand identities and marketing visuals that look as good as they work.",
+    description:
+      "From a first logo to a complete visual identity, we design brand assets, social media graphics and marketing material that make your business instantly recognisable.",
+    icon: "graphic",
+    included: [
+      "Logo & brand identity design",
+      "Brand guidelines and colour systems",
+      "Social media & ad creatives",
+      "Brochures, flyers & pitch decks",
+      "Illustrations and iconography",
+    ],
+    deliverables: ["Source files (AI, Figma, PSD)", "Brand guidelines", "Export-ready assets"],
+    stack: ["Figma", "Illustrator", "Photoshop", "Canva", "After Effects"],
+    timeline: "1–4 weeks",
+  },
+  {
+    slug: "content-writing",
+    title: "Content writing",
+    summary: "Clear, SEO-friendly copy for websites, blogs and products.",
+    description:
+      "Words that sound like you and rank on Google — website copy, blog articles, product descriptions and technical documentation written by people who understand your industry.",
+    icon: "content",
+    included: [
+      "Website & landing page copy",
+      "SEO blog articles and keyword research",
+      "Product & service descriptions",
+      "Technical writing and documentation",
+      "Editing and content strategy",
+    ],
+    deliverables: ["Publish-ready content", "SEO keyword plan", "Content calendar"],
+    stack: ["SEO", "Google Search Console", "Grammarly", "Notion"],
+    timeline: "1–3 weeks",
   },
   {
     slug: "ai-integrations",

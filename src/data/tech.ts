@@ -14,6 +14,8 @@ export const marqueeTech = [
   "Docker",
   "Flutter",
   "Tailwind CSS",
+  "WordPress",
+  "Figma",
   "Redis",
   "Stripe",
   "Vercel",
